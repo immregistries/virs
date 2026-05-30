@@ -741,7 +741,7 @@ public class ClientServlet extends HttpServlet {
 
                                 const bodyText = await response.text();
                                 const pretty = prettyJson(bodyText);
-                                const prefix = "HTTP " + response.status + " " + response.statusText + "\n\n";
+                                const prefix = "HTTP " + response.status + " " + response.statusText + "\\n\\n";
                                 ids.rawResponse.textContent = prefix + (pretty || "(empty body)");
                                 ids.rawResponse.classList.remove("empty");
 
