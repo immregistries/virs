@@ -10,6 +10,7 @@ import org.hl7.fhir.r4.model.Parameters;
 import org.hl7.fhir.r4.model.Resource;
 import org.immregistries.virs.fhir.FhirContextProvider;
 import org.immregistries.virs.fhir.FhirOperationUtil;
+import org.immregistries.virs.service.VirsResolutionService;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,6 +21,7 @@ import java.nio.charset.StandardCharsets;
 public class ResolveIdentificationServlet extends HttpServlet {
 
     private static final String FHIR_JSON_CONTENT_TYPE = "application/fhir+json";
+    private static final VirsResolutionService RESOLUTION_SERVICE = new VirsResolutionService();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -61,7 +63,8 @@ public class ResolveIdentificationServlet extends HttpServlet {
             return;
         }
 
-        Parameters responseBody = FhirOperationUtil.buildResolutionResponse(immunization);
+        Parameters responseBody = FhirOperationUtil.buildResolutionResponse(
+                RESOLUTION_SERVICE.resolve(immunization));
         writeResponse(resp, HttpServletResponse.SC_OK, responseBody);
     }
 
