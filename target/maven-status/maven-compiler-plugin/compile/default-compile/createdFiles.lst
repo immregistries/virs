@@ -1,0 +1,8 @@
+org\immregistries\virs\servlet\ClientServlet.class
+org\immregistries\virs\util\JsonUtil.class
+org\immregistries\virs\fhir\FhirContextProvider.class
+org\immregistries\virs\servlet\HomeServlet.class
+org\immregistries\virs\demo\package-info.class
+org\immregistries\virs\servlet\StatusServlet.class
+org\immregistries\virs\service\package-info.class
+org\immregistries\virs\model\package-info.class
